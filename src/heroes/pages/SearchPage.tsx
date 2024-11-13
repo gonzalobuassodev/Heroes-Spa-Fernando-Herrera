@@ -19,11 +19,10 @@ export const SearchPage = () => {
     const heroes = getHeroesByName(q);
 
     const showSearch = q === '';
-
     const showErrors = heroes.length < 1 && q !== '';
 
     const { formState, onInputChange } = useForm({
-        searchText: '',
+        searchText: q,
     });
 
     const { searchText } = formState;
@@ -43,7 +42,7 @@ export const SearchPage = () => {
 
                     <hr />
 
-                    <form onSubmit={(e) => onSearchSubmit(e)}>
+                    <form aria-label="form" onSubmit={(e) => onSearchSubmit(e)}>
                         <input
                             type="text"
                             placeholder="Search a Hero"
@@ -65,21 +64,29 @@ export const SearchPage = () => {
                     <hr />
 
                     <div
+                        aria-label="alert-search"
                         className={`mt-3 p-4 bg-blue-300 rounded-md border-2 border-blue-500 
-                          ${showSearch ? 'block' : 'hidden'} animate__animated animate__fadeIn`}
+                          ${
+                              showSearch ? 'block' : 'hidden'
+                          } animate__animated animate__fadeIn`}
                     >
                         Search a Hero
                     </div>
 
                     <div
-                        className={`my-3 p-4 bg-pink-200 rounded-md border-2 border-slate-500 
-                          ${showErrors ? 'block' : 'hidden'} animate__animated animate__fadeIn`}
+                        aria-label="alert-no-results"
+                        className={`my-3 p-4 bg-pink-200 rounded-md border-2 border-slate-500
+                          ${
+                              showErrors ? 'block' : 'hidden'
+                          } animate__animated animate__fadeIn`}
                     >
                         There`s no results with <b>{q}</b>
                     </div>
 
                     {heroes &&
-                        heroes.map((hero: IHero) => <HeroCard hero={hero} />)}
+                        heroes.map((hero: IHero) => (
+                            <HeroCard key={hero.id} hero={hero} />
+                        ))}
                 </div>
             </div>
         </>

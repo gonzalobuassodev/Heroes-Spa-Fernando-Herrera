@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SearchPage should show the components with the default values 1`] = `
+<div>
+  <h1>
+    Search
+  </h1>
+  <hr />
+  <div
+    class="grid grid-cols-2 gap-2"
+  >
+    <div>
+      <h4>
+        Searching
+      </h4>
+      <hr />
+      <form
+        aria-label="form"
+      >
+        <input
+          autocomplete="off"
+          class="border-2 border-slate-500 rounded-md p-2"
+          name="searchText"
+          placeholder="Search a Hero"
+          type="text"
+          value=""
+        />
+        <button
+          class="bg-blue-500 hover:bg-blue-800 text-white p-2 rounded-md m-4"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+    <div>
+      <h4>
+        Results
+      </h4>
+      <hr />
+      <div
+        aria-label="alert-search"
+        class="mt-3 p-4 bg-blue-300 rounded-md border-2 border-blue-500 
+                          block animate__animated animate__fadeIn"
+      >
+        Search a Hero
+      </div>
+      <div
+        aria-label="alert-no-results"
+        class="my-3 p-4 bg-pink-200 rounded-md border-2 border-slate-500
+                          hidden animate__animated animate__fadeIn"
+      >
+        There\`s no results with 
+        <b />
+      </div>
+    </div>
+  </div>
+</div>
+`;

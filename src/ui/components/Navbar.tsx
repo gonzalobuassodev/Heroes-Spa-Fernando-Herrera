@@ -56,8 +56,7 @@ export const Navbar = () => {
 
             <div className="">
                 <ul className="flex gap-3 items-center">
-                    <span className="text-blue-500">{user.name}</span>
-
+                    <span className="text-blue-500">{user?.name}</span>
                     <button
                         onClick={onLogout}
                         className="bg-blue-500 rounded-md hover:bg-blue-800 p-1"

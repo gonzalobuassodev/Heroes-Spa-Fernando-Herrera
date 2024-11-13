@@ -1,13 +1,13 @@
 import { types } from "../types/types";
 
 export interface IAction { 
-    type: string;
-    payload: IUser;
+    type?: string;
+    payload?: IUser;
 }
 
 export interface IState {
-    logged: boolean;
-    user: IUser;
+    logged?: boolean;
+    user?: IUser;
 }
 
 export interface IUser {
@@ -31,7 +31,10 @@ export const authReducer = (state: IState, action: IAction) => {
             return {
                 ...state,
                 logged: false,
-                user: {}
+                user: {
+                    id: '',
+                    name: ''
+                }
             };
     
         default:
